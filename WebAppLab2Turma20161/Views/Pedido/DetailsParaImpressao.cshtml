@@ -1,0 +1,50 @@
+﻿@model WebAppLab2Turma20161.Models.Pedido
+
+@{
+    ViewBag.Title = "Relatório do Pedido";
+    Layout = "~/Views/Shared/_LayoutParaImpressao.cshtml";
+}
+
+<h2 class="text-center"> <b>Relatório de Pedido</b></h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <h3>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cliente.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Nome)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DataPedido)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataPedido)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DataEnvio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataEnvio)
+            </dd>
+            <hr />
+            <dt>
+                @Html.DisplayNameFor(model => model.DataEntrega)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataEntrega)
+            </dd>
+        </h3>   
+        <hr />
+    </dl>
+</div>
+

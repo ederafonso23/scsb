@@ -1,0 +1,30 @@
+﻿@model WebAppLab2Turma20161.Models.Pedido
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Detalhes do Pedido</h4>
+        </div>
+        <div class="modal-body">
+
+
+            <p>@Html.DisplayNameFor(model => model.PedidoID) : @Html.DisplayFor(model => model.PedidoID)</p>
+            <p>@Html.DisplayNameFor(model => model.Cliente.Nome) : @Html.DisplayFor(model => model.Cliente.Nome)</p>
+            <p>@Html.DisplayNameFor(model => model.DataPedido) : @Html.DisplayFor(model => model.DataPedido)</p>
+            <p>@Html.DisplayNameFor(model => model.DataEnvio) : @Html.DisplayFor(model => model.DataEnvio)</p>
+            <p>@Html.DisplayNameFor(model => model.DataEntrega) : @Html.DisplayFor(model => model.DataEntrega)</p>
+            <div class="text-right"><a href="/Pedido/GerarPDF/@Model.PedidoID" class="btn btn-danger">Gerar Relatório em PDF</a></div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

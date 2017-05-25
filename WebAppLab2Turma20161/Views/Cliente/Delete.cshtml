@@ -1,0 +1,71 @@
+﻿@model WebAppLab2Turma20161.Models.Cliente
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+
+            <h2>Você tem certeza que deseja excluir esse registro?</h2>
+        </div>
+
+        <div class="modal-body">
+
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DataNascimento)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CPF)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CPF)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Endereco)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CEP)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CEP)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="modal-footer">
+                    <input type="submit" value="Confirmar" class="btn btn-primary" />
+                    <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model WebAppLab2Turma20161.Models.Cliente
+
+<div>
+    <h2>Último Cliente Cadastrado</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Atualizar", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Mostar Todos", "Index")
+</p>

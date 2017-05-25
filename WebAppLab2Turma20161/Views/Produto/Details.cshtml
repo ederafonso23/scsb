@@ -1,0 +1,27 @@
+﻿@model WebAppLab2Turma20161.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Detalhes do Produto</h4>
+        </div>
+        <div class="modal-body">
+
+
+            <p>@Html.DisplayNameFor(model => model.ProdutoID) : @Html.DisplayFor(model => model.ProdutoID)</p>
+            <p>@Html.DisplayNameFor(model => model.Categoria.Descricao) : @Html.DisplayFor(model => model.Categoria.Descricao)</p>
+            <p>@Html.DisplayNameFor(model => model.Descricao) : @Html.DisplayFor(model => model.Descricao)</p>
+            <p>@Html.DisplayNameFor(model => model.Valor) : @Html.DisplayFor(model => model.Valor)</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

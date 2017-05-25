@@ -1,0 +1,38 @@
+﻿@{ 
+    ViewBag.Title = "JQuery";
+}
+ <h2>JQuery</h2>
+
+<fieldset>
+
+    <legend> Exemplo 01 - Jquery método hide()</legend>
+
+    
+
+</fieldset>
+
+<button id="btnOcultar">Clique aqui para ocultar</button>
+<button id="btnMostrar">Clique aqui para mostrar</button>
+
+@section scripts{ 
+
+<script>
+
+    $(document).ready(function () {
+
+        //Código jquery vem aqui
+        $("#btnOcultar").click(function () {
+            $("fieldset").hide();
+
+        });
+
+        $("#btnMostrar").click(function () {
+            $("fieldset").show();
+
+        });
+
+    });
+
+    </script>    
+    
+}

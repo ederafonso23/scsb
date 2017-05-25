@@ -1,0 +1,91 @@
+﻿@model WebAppLab2Turma20161.Models.Horario
+
+@{
+    ViewBag.Title = "Horário - Cadastro";
+    Layout = "~/Views/Shared/_LayoutPageInterno.cshtml";
+}
+
+<h2>Cadastro de Horário</h2>
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        @using (Html.BeginForm())
+        {
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Cadastro de Horario</h4>
+            </div>
+
+            @Html.AntiForgeryToken()
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cliente.Nome, "Nome do Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("ClienteID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ClienteID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Descricao, "Serviço", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DataAtendimento, "Data do Atendimento", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.DataAtendimento, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DataAtendimento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HorarioAtendimento, "Horário do Atendimento", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HorarioAtendimento, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HorarioAtendimento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                   </div>
+
+
+
+                    <div class="modal-footer">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                        <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+                    </div>
+                </div>
+                }
+
+
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    @Scripts.Render("~/bundles/jqueryui")
+                    @Scripts.Render("~/bundles/jquerymask")
+
+
+
+                    <script>
+                        $(document).ready(function () {
+                            $("#DataAtendimento").datepicker().mask("99/99/9999", { placeholder: "dd/mm/aaaa" });
+
+                        });
+                        $("#HorarioAtendimento").mask("99:99");
+
+                    </script>
+                }
+            </div>
+</div>

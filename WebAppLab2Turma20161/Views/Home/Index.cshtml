@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Página Inicial";
+}
+
+<div class="jumbotron">
+
+    <h1>       
+            <b>
+                Sistema de Controle de Salão de Beleza V3.0
+
+                @{
+                    if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Administrador"))
+                        {
+                                            
+                        }
+                    }
+                }
+                </b>
+            </h1>
+    
+     
+    @{
+
+
+        if (Request.IsAuthenticated)
+        {
+            if (User.IsInRole("Administrador"))
+            {
+
+
+                <h3>    <li>@Html.ActionLink("Gerenciar Clientes", "Index", "Cliente")</li>  
+                    <li>@Html.ActionLink("Gerenciar Produtos", "Index", "Produto")</li> 
+                    <li>@Html.ActionLink("Gerenciar Pedidos", "Index", "Pedido")</li>
+                    <li>@Html.ActionLink("Gerenciar Categorias", "Index", "Categoria")</li>
+                    <li>@Html.ActionLink("Gerenciar Horários", "Index", "Horario")</li> </h3>
+                           
+
+
+
+            }
+
+        }
+    }
+    
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Notas de atualização
+    </button>
+      
+ 
+    
+       
+    <div class="text-center">
+        <h2>Próximas atualizações principais:</h2>
+        <h3>v4.0: Carrinho de Compras</h3>
+        
+    </div>
+    
+    
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Notas de atualizações do sistema</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <font>
+                        <b> V1.0:</b></p>
+                        *Gerenciamento de Clientes</p>
+                        *Gerenciamento de Pedidos</p>
+                        *Gerenciamento de Horários</p>
+                        *Gerenciamento de Produtos</p>
+                        *Gerenciamento de Categorias</p>
+
+                        <b>V1.4:</b></p>
+                        *Ordenação de pesquisas</u></p>
+                        *Consulta em todos os campos</u></p>
+                        *Mensagens de Feedback do sistema</u></p>
+                        *Paginação</u></p>
+
+                        <b>V1.5.1:</b></p>
+                        *Relatório de Pedido em PDF</u></p>
+                        *Price Format em R$</u></p>
+
+                        <b>V1.5.4:</b></p>
+                        *Correções de bugs em geral</u></p>
+                        *Máscaras diversas</u></p>
+                        *Novos atributos mais organizados</u></p>
+
+                        <b>V1.5.5:</b></p>
+                        *Correções de bugs em geral(Classes)</u></p>
+
+                        <b>V2.0:</b></p>
+                        *Nova interface mais responsiva(Otimização do sistema)</a></p>
+
+                        <b>V3.0:</b></p>
+                        *Sistema com cadastro e log in de conta com permissões.</a></p>
+                        
+                        
+                    </font></i>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </p>
+ 

@@ -1,0 +1,59 @@
+﻿@model WebAppLab2Turma20161.Models.Produto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+       
+            <h2>Você tem certeza que deseja excluir esse registro?</h2>
+        </div>
+
+        <div class="modal-body">
+
+            
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Categoria.Descricao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Categoria.Descricao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Descricao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Valor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Valor)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="modal-footer">
+                    <input type="submit" value="Confirmar" class="btn btn-primary" />
+                    <input type="button" value="Cancelar" class="btn btn-default" data-dismiss="modal" />
+                </div>
+            }
+        </div>
+
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
