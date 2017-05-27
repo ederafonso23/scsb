@@ -12,7 +12,7 @@ using WebAppLab2Turma20161.Models;
 using WebAppLab2Turma20161.Models.ViewModels;
 
 
-namespace WebAppLab2Turma20161.Controllers
+namespace Areas.Administracao.Controllers
 {
 
     [Authorize(Roles = "Administrador")]

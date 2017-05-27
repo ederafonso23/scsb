@@ -1,5 +1,4 @@
 ﻿using PagedList;
-using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,26 +9,12 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 
-namespace WebAppLab2Turma20161.Controllers
+namespace Areas.Administracao.Controllers
 {
     [Authorize(Roles = "Administrador")]
-    public class PedidoController : Controller
+    public class HorarioController : Controller
     {
         private ContextoEF db = new ContextoEF();
-
-
-        public ActionResult GerarPDF(int id)
-        {
-            var modelo = db.Pedidos.Find(id);
-
-            var pdf = new ViewAsPdf
-            {
-                ViewName = "DetailsParaImpressao",
-                Model = modelo
-            };
-
-            return pdf;
-        }
 
         public ActionResult ConsultarCliente(int? pagina, string nomeCliente = null)
         {
@@ -39,168 +24,168 @@ namespace WebAppLab2Turma20161.Controllers
 
             if (!String.IsNullOrEmpty(nomeCliente))
             {
-                cliente = db.Pedidos
+                cliente = db.Horarios
                     .Where(c => c.Cliente.Nome.ToUpper().Contains(nomeCliente.ToUpper()))
                     .OrderBy(c => c.Cliente.Nome)
                     .ToPagedList(numeroPagina, tamanhoPagina);
             }
             else
             {
-                cliente = db.Pedidos.OrderBy(p => p.Cliente.Nome).ToPagedList(numeroPagina, tamanhoPagina);
+                cliente = db.Horarios.OrderBy(p => p.Cliente.Nome).ToPagedList(numeroPagina, tamanhoPagina);
             }
             return View("Index", cliente);
         }
-        //TODO: criar as seguintes actions methods: PedidosPorCodigoDoCliente, PrimeiroPedidoRealizado,
-        //TodosPedidosDeClientes, TodosPedidosClientesEnviadoNaoEntregue,
-        //DetalhesDoPedidoComFiltro
-        //Utilize as consultas produzidas no LinqPad
 
-        // GET: Pedido
+        // GET: Horario
         public ActionResult Index(string ordenacao, int? pagina)
         {
+
             ViewBag.OrdenacaoAtual = ordenacao;
             ViewBag.NomeParam = String.IsNullOrEmpty(ordenacao) ? "Nome_desc" : "";
-            ViewBag.DataPedidoParam = ordenacao == "DataPedido" ? "DataPedido_desc" : "DataPedido";
-            ViewBag.DataEnvioParam = ordenacao == "DataEnvio" ? "DataEnvio_desc" : "DataEnvio";
-            ViewBag.DataEntregaParam = ordenacao == "DataEntrega" ? "DataEntrega_desc" : "DataEntrega";
+            ViewBag.DescricaoParam = ordenacao == "Descricao" ? "Descricao_desc" : "Descricao";
+            ViewBag.DataParam = ordenacao == "Data" ? "Data_desc" : "Data";
+            ViewBag.HorarioParam = ordenacao == "Horario" ? "Horario_desc" : "Horario";
+          
 
-            var pedidos = from c in db.Pedidos select c;
-        
+            var horarios = from c in db.Horarios select c;
+
             int tamanhoPagina = 5;
             int numeroPagina = pagina ?? 1;
 
             switch (ordenacao)
             {
                 case "Nome_desc":
-                    pedidos = pedidos.OrderByDescending(s => s.Cliente.Nome);
+                    horarios = horarios.OrderByDescending(s => s.Cliente.Nome);
                     break;
-                case "DataPedido":
-                    pedidos = pedidos.OrderBy(s => s.DataPedido);
+                case "Descricao":
+                    horarios = horarios.OrderBy(s => s.Descricao);
                     break;
-                case "DataPedido_desc":
-                    pedidos = pedidos.OrderByDescending(s => s.DataPedido);
+                case "Descricao_desc":
+                    horarios = horarios.OrderByDescending(s => s.Descricao);
                     break;
-                case "DataEenvio":
-                    pedidos = pedidos.OrderBy(s => s.DataEnvio);
+                case "Data":
+                    horarios = horarios.OrderBy(s => s.DataAtendimento);
                     break;
-                case "DataEnvio_desc":
-                    pedidos = pedidos.OrderByDescending(s => s.DataEnvio);
+                case "Data_desc":
+                    horarios = horarios.OrderByDescending(s => s.DataAtendimento);
                     break;
-                case "DataEntrega":
-                    pedidos = pedidos.OrderBy(s => s.DataEntrega);
+                case "Horario":
+                    horarios = horarios.OrderBy(s => s.HorarioAtendimento);
                     break;
-                case "DataEntrega_desc":
-                    pedidos = pedidos.OrderByDescending(s => s.DataEntrega);
+                case "Horario_desc":
+                    horarios = horarios.OrderByDescending(s => s.HorarioAtendimento);
                     break;
+             
                 default:
-                    pedidos = pedidos.OrderBy(s => s.Cliente.Nome);
+                    horarios = horarios.OrderBy(s => s.Cliente.Nome);
                     break;
             }
 
 
 
-            return View(pedidos.ToPagedList(numeroPagina, tamanhoPagina));
+            return View(horarios.ToPagedList(numeroPagina, tamanhoPagina));
+
+
+
+            return View(db.Horarios.OrderBy(p => p.Cliente.Nome).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
-        // GET: Pedido/Details/5
+        // GET: Horario/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
-            if (pedido == null)
+            Horario horario = db.Horarios.Find(id);
+            if (horario == null)
             {
                 return HttpNotFound();
             }
-            return View(pedido);
+            return View(horario);
         }
 
-        // GET: Pedido/Create
+        // GET: Horario/Create
         public ActionResult Create()
         {
             ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nome");
             return View();
         }
 
-        // POST: Pedido/Create
+        // POST: Horario/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PedidoID,ClienteID,DataPedido,DataEnvio,DataEntrega")] Pedido pedido)
+        public ActionResult Create(Horario horario)
         {
             if (ModelState.IsValid)
             {
-                db.Pedidos.Add(pedido);
+                db.Horarios.Add(horario);
                 db.SaveChanges();
-                TempData["Mensagem"] = "Pedido cadastrado com sucesso!";
+                TempData["Mensagem"] = "Horário cadastrado com sucesso!";
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nome", pedido.ClienteID);
-            return View(pedido);
+            return View(horario);
         }
 
-        // GET: Pedido/Edit/5
+        // GET: Horario/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
-            if (pedido == null)
+            Horario horario = db.Horarios.Find(id);
+            if (horario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nome", pedido.ClienteID);
-            return View(pedido);
+            return View(horario);
         }
 
-        // POST: Pedido/Edit/5
+        // POST: Horario/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PedidoID,ClienteID,DataPedido,DataEnvio,DataEntrega")] Pedido pedido)
+        public ActionResult Edit([Bind(Include = "HorarioID,Descricao,DataAtendimento,HorarioAtendimento")] Horario horario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pedido).State = EntityState.Modified;
+                db.Entry(horario).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["Mensagem"] = "Pedido atualizado com sucesso!";
+                TempData["Mensagem"] = "Horário atualizado com sucesso!";
                 return RedirectToAction("Index");
             }
-            ViewBag.ClienteID = new SelectList(db.Clientes, "ClienteID", "Nome", pedido.ClienteID);
-            return View(pedido);
+            return View(horario);
         }
 
-        // GET: Pedido/Delete/5
+        // GET: Horario/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
-            if (pedido == null)
+            Horario horario = db.Horarios.Find(id);
+            if (horario == null)
             {
                 return HttpNotFound();
             }
-            return View(pedido);
+            return View(horario);
         }
 
-        // POST: Pedido/Delete/5
+        // POST: Horario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pedido pedido = db.Pedidos.Find(id);
-            db.Pedidos.Remove(pedido);
+            Horario horario = db.Horarios.Find(id);
+            db.Horarios.Remove(horario);
             db.SaveChanges();
-            TempData["Mensagem"] = "Pedido excluído com sucesso!";
+            TempData["Mensagem"] = "Horário excluído com sucesso!";
             return RedirectToAction("Index");
         }
 

@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 
-namespace WebAppLab2Turma20161.Controllers
+namespace Areas.Administracao.Controllers
 {
 
     [Authorize(Roles = "Administrador")]
