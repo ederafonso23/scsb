@@ -20,33 +20,12 @@
                 </b>
             </h1>
     
-     
-    @{
+   </div>  
 
-
-        if (Request.IsAuthenticated)
-        {
-            if (User.IsInRole("Administrador"))
-            {
-
-
-                <h3>    <li>@Html.ActionLink("Gerenciar Clientes", "Index", "Cliente")</li>  
-                    <li>@Html.ActionLink("Gerenciar Produtos", "Index", "Produto")</li> 
-                    <li>@Html.ActionLink("Gerenciar Pedidos", "Index", "Pedido")</li>
-                    <li>@Html.ActionLink("Gerenciar Categorias", "Index", "Categoria")</li>
-                    <li>@Html.ActionLink("Gerenciar Horários", "Index", "Horario")</li> </h3>
-                           
-
-
-
-            }
-
-        }
-    }
     
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Notas de atualização
+    Notas de Atualização
     </button>
       
  

@@ -32,9 +32,21 @@
 
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Administrador"))
+                            {
+                                <li><a href="~/Administracao">Área Administrativa</a></li>
+
+                            }
+                        }
+                    }
                           
                             
-                      
+
+                
 
 
                 </ul>

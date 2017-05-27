@@ -1,13 +1,65 @@
 ﻿<ul class="nav nav-list">
     <li class="">
-        <a href="@Url.Action("Index", "Dashboard")">
-            <i class="menu-icon fa fa-tachometer"></i>
-            <span class="menu-text"> Dashboard </span>
+        <a href="@Url.Action("Index", "Home")">
+            <i class="menu-icon fa fa-home"></i>
+            <span class="menu-text"> Página Inicial </span>
+        </a>
+    
+        <b class="arrow"></b>
+    </li>
+
+    @{
+        if (Request.IsAuthenticated)
+        {
+            if (User.IsInRole("Administrador"))
+            {
+
+              
+              
+
+            }
+
+        }
+    }
+
+    <li class="">
+        <a href="@Url.Action("Index", "Horario")">
+            <i class="menu-icon fa fa-calendar-o"></i>
+            <span class="menu-text"> Horários </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+    <li class="">
+        <a href="@Url.Action("Index", "Pedido")">
+            <i class="menu-icon fa fa-shopping-cart"></i>
+            <span class="menu-text"> Pedidos </span>
         </a>
 
         <b class="arrow"></b>
     </li>
 
+    <li class="">
+        <a href="@Url.Action("Index", "Produto")">
+            <i class="menu-icon fa fa-plus-circle"  ></i>
+            <span class="menu-text"> Produtos </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+    <li class="">
+        <a href="@Url.Action("Index", "Categoria")">
+            <i class="menu-icon fa fa-tag"></i>
+            <span class="menu-text"> Categorias </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+
+  
+    
+
+    <!--
     <li class="">
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-desktop"></i>
@@ -467,4 +519,5 @@
             </li>
         </ul>
     </li>
+        -->
 </ul><!-- /.nav-list -->
