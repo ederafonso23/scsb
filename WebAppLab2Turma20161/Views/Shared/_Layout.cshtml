@@ -19,16 +19,17 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                
+
 
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
 
-                    <li>@Html.ActionLink("Lista de Produtos", "Index", "Produto")</li>
+                      <li>@Html.ActionLink("Lista de Produtos", "Index", "Produto")</li>
+                    @*<li><a href="@Url.Action("Index", "Produto", new { area="Administracao" })">Lista de Produtos</a></li>*@
 
-              
+
 
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
@@ -43,10 +44,10 @@
                             }
                         }
                     }
-                          
-                            
 
-                
+
+
+
 
 
                 </ul>
@@ -66,8 +67,8 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jquerymask")
-    
-    
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

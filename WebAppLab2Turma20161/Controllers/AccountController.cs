@@ -395,6 +395,12 @@ namespace WebAppLab2Turma20161.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult Sair()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
