@@ -1,4 +1,4 @@
-﻿@model WebAppLab2Turma20161.Models.CustomerOrder
+﻿@model WebAppLab2Turma20161.Models.Pedido
 @{
     ViewBag.Title = "Address And Payment";
 }
@@ -9,25 +9,24 @@
 @using (Html.BeginForm())
 {
     <div class="weird">
-        <h2>Address And Payment</h2>
+        <h2>Dados de Entrega e Pagamento</h2>
         <fieldset>
             <legend>Shipping Information</legend>
             @Html.EditorForModel()
         </fieldset>
         <fieldset>
-            <legend>Payment</legend>
+            <legend>Pagamento</legend>
             <p>
-                We're running a promotion: all item is free
-                with the promo code: "FREE"
+                Semana de promoção: todos os itens com 10% de descontro com o código promocional:
             </p>
             <div class="editor-label">
-                @Html.Label("Promo Code")
+                @Html.Label("Código")
             </div>
             <div class="editor-field">
                 @Html.TextBox("PromoCode")
             </div>
         </fieldset>
 
-        <input type="submit" value="Submit Order"/>
+        <input type="submit" value="Finalizar Pedido"/>
     </div>
 }

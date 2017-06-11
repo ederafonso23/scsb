@@ -7,17 +7,17 @@ using System.Web;
 
 namespace WebAppLab2Turma20161.Models
 {
-    public class OrderedProduct
+    public class ItensDoPedido
     {
         [Key][Column(Order = 0)]
-        public int ProductId { get; set; }
+        public int ProdutoId { get; set; }
 
         [Key][Column(Order = 1)]
-        public int CustomerOrderId { get; set; }
+        public int PedidoId { get; set; }
 
-        public int Quantity { get; set; }
+        public int Quantidade { get; set; }
 
-        public virtual Product Product { get; set; }
-        public virtual CustomerOrder CustomerOrder { get; set; }
+        public virtual Produto Produto { get; set; }
+        public virtual Pedido Pedido { get; set; }
     }
 }

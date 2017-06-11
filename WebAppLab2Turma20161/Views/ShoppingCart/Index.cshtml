@@ -1,57 +1,57 @@
 ﻿@using System.Diagnostics.Eventing.Reader
 @using System.Globalization
-@model MvcAffableBean.ViewModels.ShoppingCartViewModel
+@model WebAppLab2Turma20161.ViewModels.ShoppingCartViewModel
 
 @{
-    ViewBag.Title = "Store Checkout";
-    CultureInfo us = new CultureInfo("en-US");
+    ViewBag.Title = "Meu Carrinho de Compras";
+    CultureInfo us = new CultureInfo("pt-br");
 }
 
 
 <h3 class="text-center">
-     <span><img src="~/Content/Images/shoping_cart.png" />Your shopping cart:</span>
+     <span><img src="~/Content/Images/shoping_cart.png" />Seu carrinho de compras:</span>
 </h3>
 
 <div id="update-message" class="text-info">
 </div>
 @if (Model.CartItems.Count==0)
 {
-    <a class="btn-danger" href="~/StoreFront/Index/1">Your shopping cart is empty, continue shopping---></a>
+    <a class="btn-danger" href="~/StoreFront/Index/1">Carrinho vazio... continuar comprando ---></a>
 }
 else
 {
-    <table class="table-responsive table-bordered table-striped">
+    <table class="table table-responsive table-bordered table-striped">
         <tr>
             <th>
-                Product Name
+                Produto
             </th>
             <th>
-                Price (each)
+               Preço(Unidade)
             </th>
             <th>
-                Quantity
+                Quantidade
             </th>
             <th>Sub-total</th>
             <th></th>
         </tr>
         @foreach (var item in Model.CartItems)
         {
-            <tr id="row-@item.ProductId">
+            <tr id="row-@item.ProdutoId">
                 <td>
-                    @Html.ActionLink(item.Product.Name, "Details", "Products", new {id = item.ProductId}, null)
+                    @Html.ActionLink(item.Produto.Nome, "Details", "Products", new {id = item.ProdutoId}, null)
                 </td>
                 <td>
-                    @item.Product.Price
+                    @item.Produto.Preco
                 </td>
-                <td id="item-count-@item.ProductId">
-                    @item.Count
-                </td>
-                <td>
-                    @((item.Product.Price*item.Count).ToString("c",us))
+                <td id="item-count-@item.ProdutoId">
+                    @item.TotalItens
                 </td>
                 <td>
-                    <a href="" class="RemoveLink" data-id="@item.ProductId">
-                        Remove from cart
+                    @((item.Produto.Preco * item.TotalItens).ToString("c",us))
+                </td>
+                <td>
+                    <a href="" class="RemoveLink" data-id="@item.ProdutoId">
+                        Remover do carrinho
                     </a>
                 </td>
             </tr>
@@ -69,10 +69,10 @@ else
     </table>
 
     <p class="button">
-        <a href="~/StoreFront/Index/1">Continue shopping>></a>
+        <a href="~/StoreFront/Index/1">Continuar comprando >> </a>
     </p>
     <p class="button">
-        @Html.ActionLink("Checkout>> ", "AddressAndPayment", "Checkout")
+        @Html.ActionLink("Finalizar pedido (Checkout) >> ", "AddressAndPayment", "Checkout")
     </p>
 }
 

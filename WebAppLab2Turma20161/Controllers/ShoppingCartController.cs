@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 using WebAppLab2Turma20161.ViewModels;
 
-namespace MvcAffableBean.Controllers
+namespace WebAppLab2Turma20161.Controllers
 {
     public class ShoppingCartController : Controller
     {
@@ -15,12 +15,12 @@ namespace MvcAffableBean.Controllers
 
         public ActionResult Index()
         {
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            var cart = CarrinhoCompras.ObterCarrinhoAtual(this.HttpContext);
 
             var viewModel = new ShoppingCartViewModel
             {
-                CartItems = cart.GetCartItems(),
-                CartTotal = cart.GetTotal()
+                CartItems = cart.ObterItensCarrinho(),
+                CartTotal = cart.ObterTotal()
             };
 
             return View(viewModel);
@@ -28,11 +28,11 @@ namespace MvcAffableBean.Controllers
 
         public ActionResult AddToCart(int id)
         {
-            var addedProduct = db.Products.Single(product => product.Id == id);
+            var addedProduct = db.Produtos.Single(product => product.ProdutoId == id);
 
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            var cart = CarrinhoCompras.ObterCarrinhoAtual(this.HttpContext);
 
-            cart.AddToCart(addedProduct);
+            cart.AdicionarNoCarrinho(addedProduct);
 
             return RedirectToAction("Index");
         }
@@ -40,17 +40,17 @@ namespace MvcAffableBean.Controllers
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            var cart = CarrinhoCompras.ObterCarrinhoAtual(this.HttpContext);
 
-            string productName = db.Carts.FirstOrDefault(item => item.ProductId == id).Product.Name;
+            string productName = db.Carrinhos.FirstOrDefault(item => item.ProdutoId == id).Produto.Nome;
 
-            int itemCount = cart.RemoveFromCart(id);
+            int itemCount = cart.RemoverItemDoCarrinho(id);
 
             var results = new ShoppingCartRemoveViewModel
             {
-                Message = Server.HtmlEncode(productName) + " has been removed from your shopping cart",
-                CartTotal = cart.GetTotal(),
-                CartCount = cart.GetCount(),
+                Message = Server.HtmlEncode(productName) + " foi removido do seu carrinho de compras",
+                CartTotal = cart.ObterTotal(),
+                CartCount = cart.ObterTotalItens(),
                 ItemCount = itemCount,
                 DeleteId = id
             };
@@ -61,9 +61,9 @@ namespace MvcAffableBean.Controllers
         [ChildActionOnly]
         public ActionResult CartSummary()
         {
-            var cart = ShoppingCart.GetCart(this.HttpContext);
+            var cart = CarrinhoCompras.ObterCarrinhoAtual(this.HttpContext);
 
-            ViewData["CartCount"] = cart.GetCount();
+            ViewData["CartCount"] = cart.ObterTotalItens();
             return PartialView("CartSummary");
         }
 

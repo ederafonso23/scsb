@@ -8,16 +8,11 @@ namespace WebAppLab2Turma20161.Models
 {
     public class Categoria
     {
-        public Categoria()
-        {
-            this.Produtos = new List<Produto>();
-        }
-        [Display(Name = "ID")]
-        public int CategoriaID { get; set; }
+        public int CategoriaId { get; set; }
+
         [Display(Name = "Categoria")]
-        public String Descricao { get; set; }
-        public virtual ICollection<Produto> Produtos { get; set; }
-
-
+        [Required(ErrorMessage = "Categoria é obrigatório")]
+        public string Nome { get; set; }
+        public virtual ICollection<Produto> Produtos { get; set; } 
     }
 }

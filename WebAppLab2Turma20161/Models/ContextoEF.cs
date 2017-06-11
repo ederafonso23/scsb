@@ -14,18 +14,13 @@ namespace WebAppLab2Turma20161.Models
         {
 
         }
+        public DbSet<Horario> Horarios { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
-        public DbSet<Horario> Horarios { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<CustomerOrder> CustomerOrders { get; set; }
-        public DbSet<OrderedProduct> Orderedproducts { get; set; }
-        public DbSet<Cart> Carts { get; set; }
+        public DbSet<ItensDoPedido> ProdutosEncomendados { get; set; }
+        public DbSet<Carrinho> Carrinhos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,9 +29,9 @@ namespace WebAppLab2Turma20161.Models
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Configurations.Add(new ConfiguracaoCliente());
-            modelBuilder.Configurations.Add(new ConfiguracaoPedido());
-            modelBuilder.Configurations.Add(new ConfiguracaoCategoria());
-            modelBuilder.Configurations.Add(new ConfiguracaoProduto());
+            //modelBuilder.Configurations.Add(new ConfiguracaoPedido());
+            //modelBuilder.Configurations.Add(new ConfiguracaoCategoria());
+            //modelBuilder.Configurations.Add(new ConfiguracaoProduto());
         }
     }
 }

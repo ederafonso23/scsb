@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SCSB</title>
+    <title>@ViewBag.Title - Loja Virtual</title>
+    <link href='https://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,40 +19,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-
-
+                @Html.ActionLink("Loja Virtual", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
-
-                      <li>@Html.ActionLink("Lista de Produtos", "Index", "Produto")</li>
-                    @*<li><a href="@Url.Action("Index", "Produto", new { area="Administracao" })">Lista de Produtos</a></li>*@
-
-
-
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-
-                    @{
-                        if (Request.IsAuthenticated)
+                    <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+                    <li>@if (Request.IsAuthenticated)
                         {
-                            if (User.IsInRole("Administrador"))
-                            {
-                                <li><a href="~/Administracao">Área Administrativa</a></li>
-
-                            }
+                            @Html.ActionLink("Olá, " + User.Identity.Name + "   | Sair ", "Sair", "Accounts", new { area="" })
                         }
-                    }
-
-
-
-
-
-
-                </ul>
-                @Html.Partial("_LoginPartial")
+                        else
+                        {
+                            @Html.ActionLink("Meu(s) pedido(s)","LogOn","Accounts")
+                        }
+                    </li>
             </div>
         </div>
     </div>
@@ -59,16 +40,48 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - SCSB</p>
+            <p class="text-center"> Desenvolvido por <a href="#" target="_new">Éder - Curso CTS Feics</a> &copy; @DateTime.Now.Year</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jquerymask")
-
-
     @RenderSection("scripts", required: false)
+<script src="~/Content/Js/ResponsiveSlider.js"></script>
+<script type="text/javascript">
+
+    $(".rslides").responsiveSlides({
+        auto: true, // Boolean: Animate automatically, true or false
+        speed: 500 // Integer: Speed of the transition, in milliseconds
+    });
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".RemoveLink").click(function (e) {
+                e.preventDefault();
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/ShoppingCart/RemoveFromCart", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 0) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        } else {
+                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                        }
+                        $('#cart-total').text(data.CartTotal);
+                        $('#update-message').text(data.Message);
+                        $('#cart-status').text('Cart (' + data.CartCount + ')');
+                    });
+            }
+        });
+    })
+
+    </script>
+
 </body>
 </html>

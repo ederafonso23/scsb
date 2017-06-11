@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 
-namespace MvcAffableBean.Controllers
+namespace WebAppLab2Turma20161.Controllers
 {
     public class StoreFrontController : Controller
     {
@@ -20,7 +20,7 @@ namespace MvcAffableBean.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Category category = db.Categories.Find(id);
+            Categoria category = db.Categorias.Find(id);
             if (category == null)
             {
                 return HttpNotFound();

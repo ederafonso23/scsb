@@ -7,19 +7,19 @@ using System.Web;
 
 namespace WebAppLab2Turma20161.Models
 {
-    public class Cart
+    public class Carrinho
     {
         [Key]
         public int Id { get; set; }
 
-        public string CartId { get; set; }
+        public string CarrinhoId { get; set; }
 
-        public int ProductId { get; set; }
-        public int Count { get; set; }
+        public int ProdutoId { get; set; }
+        public int TotalItens { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime DateCreated { get; set; }
+        public DateTime DataRegistro { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Produto Produto { get; set; }
     }
 }

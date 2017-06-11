@@ -17,7 +17,7 @@ namespace WebAppLab2Turma20161.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categorias.ToList());
         }
 
         // GET: Categories/Details/5
@@ -27,7 +27,7 @@ namespace WebAppLab2Turma20161.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Categoria category = db.Categorias.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace WebAppLab2Turma20161.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Category category)
+        public ActionResult Create([Bind(Include = "Id,Name")] Categoria category)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Categorias.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace WebAppLab2Turma20161.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Categoria category = db.Categorias.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace WebAppLab2Turma20161.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Category category)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Categoria category)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace WebAppLab2Turma20161.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Categoria category = db.Categorias.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace WebAppLab2Turma20161.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
+            Categoria category = db.Categorias.Find(id);
+            db.Categorias.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

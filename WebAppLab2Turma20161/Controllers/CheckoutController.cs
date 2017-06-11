@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 
-namespace MvcAffableBean.Controllers
+namespace WebAppLab2Turma20161.Controllers
 {
 
     [Authorize]
@@ -22,7 +22,7 @@ namespace MvcAffableBean.Controllers
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
-            var order = new CustomerOrder();
+            var order = new Pedido();
 
             TryUpdateModel(order);
 
@@ -34,18 +34,18 @@ namespace MvcAffableBean.Controllers
                 }
                 else
                 {
-                    order.CustomerUserName = User.Identity.Name;
-                    order.DateCreated = DateTime.Now;
+                    order.NomeUsuarioCliente = User.Identity.Name;
+                    order.DataRegistro = DateTime.Now;
 
-                    db.CustomerOrders.Add(order);
+                    db.Pedidos.Add(order);
                     db.SaveChanges();
 
-                    var cart = ShoppingCart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
+                    var cart = CarrinhoCompras.ObterCarrinhoAtual(this.HttpContext);
+                    cart.CriarPedido(order);
 
                     db.SaveChanges();//we have received the total amount lets update it
 
-                    return RedirectToAction("Complete", new {id = order.Id});
+                    return RedirectToAction("Complete", new {id = order.PedidoId});
                 }
             }
             catch(Exception ex)
@@ -57,9 +57,9 @@ namespace MvcAffableBean.Controllers
 
         public ActionResult Complete(int id)
         {
-            bool isValid = db.CustomerOrders.Any(
-                o => o.Id == id &&
-                     o.CustomerUserName == User.Identity.Name
+            bool isValid = db.Pedidos.Any(
+                o => o.PedidoId == id &&
+                     o.NomeUsuarioCliente == User.Identity.Name
                 );
 
             if (isValid)

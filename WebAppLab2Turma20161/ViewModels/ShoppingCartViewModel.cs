@@ -8,7 +8,7 @@ namespace WebAppLab2Turma20161.ViewModels
 {
     public class ShoppingCartViewModel
     {
-        public List<Cart> CartItems { get; set; }
+        public List<Carrinho> CartItems { get; set; }
         public decimal CartTotal { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebAppLab2Turma20161.Models;
 
-namespace MvcAffableBean.Controllers
+namespace WebAppLab2Turma20161.Controllers
 {
     public class ProductsController : Controller
     {
@@ -17,7 +17,7 @@ namespace MvcAffableBean.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Category);
+            var products = db.Produtos.Include(p => p.Categoria);
             return View(products.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace MvcAffableBean.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Produto product = db.Produtos.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace MvcAffableBean.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.CategoryId = new SelectList(db.Categorias, "Id", "Name");
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace MvcAffableBean.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Price,Description,LastUpdated,CategoryId")] Product product)
+        public ActionResult Create(Produto product)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.Produtos.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categorias, "CategoriaId", "Nome", product.CategoriaId);
             return View(product);
         }
 
@@ -68,12 +68,12 @@ namespace MvcAffableBean.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Produto product = db.Produtos.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categorias, "CategoriaId", "Nome", product.CategoriaId);
             return View(product);
         }
 
@@ -82,7 +82,7 @@ namespace MvcAffableBean.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Price,Description,LastUpdated,CategoryId")] Product product)
+        public ActionResult Edit(Produto product)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace MvcAffableBean.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.Categorias, "CategoriaId", "Nome", product.CategoriaId);
             return View(product);
         }
 
@@ -101,7 +101,7 @@ namespace MvcAffableBean.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Produto product = db.Produtos.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace MvcAffableBean.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
+            Produto product = db.Produtos.Find(id);
+            db.Produtos.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
