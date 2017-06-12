@@ -42,12 +42,9 @@ namespace WebAppLab2Turma20161.Migrations
 
                     Nome = "Pele",
 
-                },
-
-                new Categoria {
-
-                    Nome = "Unha",
                 }
+
+
             };
 
             context.Categorias.AddRange(categorias);
@@ -86,6 +83,66 @@ namespace WebAppLab2Turma20161.Migrations
                                 cabelos. Rico em proteínas, sua ação é 
                                 ampla e eficaz em relação ao 
                                 fortalecimento da fibra capilar. ",
+
+                },
+
+                new Produto {
+
+                    Preco = 259.00M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[1],
+                    Nome = "MAKE B. PALETTE DE MAQUIAGEM THE FAVORITES",
+                    Descricao = @"MAKE B. PALETTE DE MAQUIAGEM THE FAVORITES",
+
+                },
+
+                new Produto {
+
+                    Preco = 62M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[1],
+                    Nome = "Kit bareMinerals Get Started Light (5 produtos)",
+                    Descricao = @"Kit bareMinerals Get Started Light (5 produtos)",
+
+                },
+
+                new Produto {
+
+                    Preco = 6.33M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[2],
+                    Nome = "Depil Bella Cera Depilatória Roll-On Camomila com Calêndula 100g",
+                    Descricao = @"Depil Bella Cera Depilatória Roll-On Camomila com Calêndula 100g",
+
+                },
+
+                new Produto {
+
+                    Preco = 66.99M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[2],
+                    Nome = "Kit Para Depilação Sistema Roll-On Cera Quente Bivolt - Depil Bella",
+                    Descricao = @"Kit Para Depilação Sistema Roll-On Cera Quente Bivolt - Depil Bella",
+
+                },
+
+                new Produto {
+
+                    Preco = 62.32M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[3],
+                    Nome = "ACTIVE KIT ANTISSINAIS AVANÇADOS 45+",
+                    Descricao = @"ACTIVE KIT ANTISSINAIS AVANÇADOS 45+",
+
+                },
+
+                new Produto {
+
+                    Preco = 135.20M,
+                    UltimaAtualizacao = DateTime.Now,
+                    Categoria = categorias[3],
+                    Nome = "Clinique Sistema 3 Passos - Peles Mistas Kit",
+                    Descricao = @"Clinique Sistema 3 Passos - Peles Mistas Kit",
 
                 },
 

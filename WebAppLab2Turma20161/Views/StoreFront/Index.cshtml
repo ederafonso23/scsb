@@ -13,52 +13,52 @@
         <ul class="nav nav-pills nav-stacked">
 
 
-            @if(Model.Nome=="Dairy")
+            @if(Model.Nome== "Cabelo")
             {
                 <li class="active">
-                    <a href="~/StoreFront/Index/1">DAIRY</a>
+                    <a href="~/StoreFront/Index/1">Cabelo</a>
                 </li>
             }
             else
             {
                 <li>
-                     <a href="~/StoreFront/Index/1">DAIRY</a>
+                     <a href="~/StoreFront/Index/1">Cabelo</a>
                 </li>
             }
-            @if (Model.Nome == "Meats")
+            @if (Model.Nome == "Maquiagem")
             {
                 <li class="active">
-                    <a href="~/StoreFront/Index/2">MEATS</a>
+                    <a href="~/StoreFront/Index/2">Maquiagem</a>
                 </li>
             }
             else
             {
                 <li>
-                    <a href="~/StoreFront/Index/2">MEATS</a>
+                    <a href="~/StoreFront/Index/2">Maquiagem</a>
                 </li>
             }
-            @if (Model.Nome == "Bakery")
+            @if (Model.Nome == "Depilação")
             {
                 <li class="active">
-                    <a href="~/StoreFront/Index/3">BAKERY</a>
+                    <a href="~/StoreFront/Index/3">Depilação</a>
                 </li>
             }
             else
             {
                 <li>
-                    <a href="~/StoreFront/Index/3">BAKERY</a>
+                    <a href="~/StoreFront/Index/3">Depilação</a>
                 </li>
             }
-            @if (Model.Nome == "Fruits")
+            @if (Model.Nome == "Pele")
             {
                 <li class="active">
-                    <a href="~/StoreFront/Index/4">FRUIT &amp; VEG</a>
+                    <a href="~/StoreFront/Index/4">Pele</a>
                 </li>
             }
             else
             {
                 <li>
-                    <a href="~/StoreFront/Index/4">FRUIT &amp; VEG</a>
+                    <a href="~/StoreFront/Index/4">Pele</a>
                 </li>
             }
             
@@ -70,7 +70,7 @@
             {
                 <div class="col-xs-12 col-md-3">
                     <div class="thumbnail">
-                        <img class="img-responsive" src="~/Content/Images/Products/@(produto.Nome).png">
+                        <img class="img-responsive" src="~/Content/Images/Products/@(produto.ProdutoId).png">
                         <div class="caption text-center">
                             <p>
                                 <b>Nome:</b> <span>@produto.Nome</span>

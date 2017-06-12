@@ -7,7 +7,7 @@ body {
 
 
 .navbar-brand {
-    color: greenyellow !important;
+    color: #070707 !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -34,7 +34,7 @@ textarea {
     max-width: 280px;
 }
 
-/*! http://responsiveslides.com v1.54 by @viljamis */
+/*! http://responsiveslides.com v1.54 */
 
 .rslides {
     position: relative;
@@ -75,12 +75,12 @@ textarea {
 }
 
 .categorywrap {
-    border: 1px solid green;
+    border: 1px solid #7597e4;
 }
 
     .categorywrap h2 {
         text-align: center;
-        color: green
+        color: #7597e4
     }
 
     .categorywrap img {
@@ -89,12 +89,12 @@ textarea {
     }
 
 .categorywraplast {
-    border: 1px solid green;
+    border: 1px solid #7597e4;
 }
 
     .categorywraplast h2 {
         text-align: center;
-        color: green;
+        color: #7597e4;
     }
 
     .categorywraplast img {
@@ -128,7 +128,7 @@ textarea {
 
 /*navbar style*/
 .navbar-default {
-    background-color: #16450e;
+    background-color: #7597e4;
     border-color: #070707;
 }
 
@@ -200,4 +200,8 @@ textarea {
         color: #ecdbff;
         background-color: #070707;
     }
+}
+
+.btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
+    background-color: #070707 !important;
 }
