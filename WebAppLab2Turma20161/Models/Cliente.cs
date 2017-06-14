@@ -9,9 +9,26 @@ namespace WebAppLab2Turma20161.Models
 {
     public class Cliente
     {
+        [Display(Name = "ID")]
+        public int ClienteId { get; set; }
 
-       public int ClienteId { get; set; }
+        [Display(Name = "Nome do Cliente")]
+        public String Nome { get; set; }
 
+        [Display(Name = "Data de Nascimento")]
+        public DateTime DataNascimento { get; set; }
+
+        [Display(Name = "CPF")]
+        public string CPF { get; set; }
+
+        [Display(Name = "Endereço")]
+        public string Endereco { get; set; }
+
+        [Display(Name = "CEP")]
+        public string CEP { get; set; }
+
+        public virtual ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Horario> Horarios { get; set; }
     }
 
     public class LogOnModel

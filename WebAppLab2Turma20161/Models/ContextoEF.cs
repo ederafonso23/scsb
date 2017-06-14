@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using WebAppLab2Turma20161.Models.Configurations;
 
 namespace WebAppLab2Turma20161.Models
 {
@@ -28,10 +27,6 @@ namespace WebAppLab2Turma20161.Models
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Configurations.Add(new ConfiguracaoCliente());
-            //modelBuilder.Configurations.Add(new ConfiguracaoPedido());
-            //modelBuilder.Configurations.Add(new ConfiguracaoCategoria());
-            //modelBuilder.Configurations.Add(new ConfiguracaoProduto());
         }
     }
 }

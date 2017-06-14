@@ -13,6 +13,7 @@ namespace WebAppLab2Turma20161.Models
     public class Pedido
     {
         [ScaffoldColumn(false)]
+        [Display(Name = "ID")]
         public int PedidoId { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]
@@ -51,7 +52,17 @@ namespace WebAppLab2Turma20161.Models
      
         [ScaffoldColumn(false)]
         [Column(TypeName = "datetime2")]
+        [Display(Name = "Data do Pedido")]
         public DateTime DataRegistro { get; set; }
+
+        public int? ClienteID { get; set; }
+        public virtual Cliente Cliente { get; set; }
+
+        [Display(Name = "Data do Envio")]
+        public DateTime? DataEnvio { get; set; }
+
+        [Display(Name = "Data da Entrega")]
+        public DateTime? DataEntrega { get; set; }
 
         [ScaffoldColumn(false)]
         public Decimal Total { get; set; }

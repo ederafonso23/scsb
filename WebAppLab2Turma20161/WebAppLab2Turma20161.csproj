@@ -214,10 +214,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Configurations\ConfiguracaoCategoria.cs" />
-    <Compile Include="Models\Configurations\ConfiguracaoCliente.cs" />
-    <Compile Include="Models\Configurations\ConfiguracaoPedido.cs" />
-    <Compile Include="Models\Configurations\ConfiguracaoProduto.cs" />
     <Compile Include="Models\ContextoEF.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Pedido.cs" />
@@ -629,6 +625,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administracao\Models\" />
+    <Folder Include="Models\Configurations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
