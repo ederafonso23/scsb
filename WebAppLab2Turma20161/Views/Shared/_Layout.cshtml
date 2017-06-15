@@ -19,12 +19,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Loja Virtual", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+                <a href="~/Home/Index/">
+                    <img src="~/Content/Images/logoSCSB.png" alt="" />
+                    </a>
+                    @*@Html.ActionLink("Loja Virtual de Beleza", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+</div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
-                    <li>@if (Request.IsAuthenticated)
+                    @*<li>@Html.ActionLink("Sobre", "About", "Home")</li>*@
+                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                  
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Administrador"))
+                            {
+                                <li><a href="~/Administracao">Área Administrativa</a></li>
+
+                            }
+                        }
+                    }
+
+
+
+                    @*<li>@if (Request.IsAuthenticated)
                         {
                             @Html.ActionLink("Olá, " + User.Identity.Name + "   | Sair ", "Sair", "Accounts", new { area="" })
                         }
@@ -32,8 +51,12 @@
                         {
                             @Html.ActionLink("Meu(s) pedido(s)","LogOn","Accounts")
                         }
-                    </li>
-            </div>
+                    </li>*@
+     @Html.Partial("_LoginPartial")
+                  
+            
+                    
+             </div>
         </div>
     </div>
     <div class="container body-content">

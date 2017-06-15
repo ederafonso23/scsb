@@ -51,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.Cliente.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DataPedido)
+            @Html.DisplayFor(modelItem => item.DataRegistro)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataEnvio)
@@ -63,9 +63,9 @@
            @* @Html.ActionLink("Editar", "Edit", new { id=item.PedidoID }) |
             @Html.ActionLink("Detalhes", "Details", new { id=item.PedidoID }) |
             @Html.ActionLink("Excluir", "Delete", new { id=item.PedidoID }) *@
-            <button class="btn btn-default details" data-id="@item.PedidoID"><i class="glyphicon glyphicon-file"></i></button>
-            <button class="btn btn-danger delete" data-id="@item.PedidoID"><i class="glyphicon glyphicon-trash"></i></button>
-            <button class="btn btn-primary edit" data-id="@item.PedidoID"><i class="glyphicon glyphicon-edit"></i></button>
+            <button class="btn btn-default details" data-id="@item.PedidoId"><i class="glyphicon glyphicon-file"></i></button>
+            <button class="btn btn-danger delete" data-id="@item.PedidoId"><i class="glyphicon glyphicon-trash"></i></button>
+            <button class="btn btn-primary edit" data-id="@item.PedidoId"><i class="glyphicon glyphicon-edit"></i></button>
         </td>
     </tr>
 }

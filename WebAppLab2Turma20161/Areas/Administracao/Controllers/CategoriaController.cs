@@ -159,7 +159,7 @@ namespace Areas.Administracao.Controllers
         {
             Categoria categoria = db.Categorias.Find(id);
             db.Categorias.Remove(categoria);
-            db.SaveChanges();
+           db.SaveChanges();
             TempData["Mensagem"] = "Categoria excluída com sucesso!";
             return RedirectToAction("Index");
         }
