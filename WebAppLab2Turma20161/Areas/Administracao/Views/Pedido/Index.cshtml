@@ -11,7 +11,7 @@
 
 </div>
 
-<form class="text-right" method="get" action="/Pedido/ConsultarCliente">
+<form class="text-right" method="get" action="/Administracao/Pedido/ConsultarCliente">
     <p>
         <input type="search" placeholder="Pesquisar Cliente" name="nomeCliente" />
         <button type="submit" value="Pesquisar" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-search"></i></button>
@@ -19,14 +19,14 @@
 
     </p>
 </form>
-<button class="btn btn-default create"><i class="glyphicon glyphicon-new-window"></i>Novo Pedido</button>
+@*<button class="btn btn-default create"><i class="glyphicon glyphicon-new-window"></i>Novo Pedido</button>
 
 @if (TempData["Mensagem"] != null)
 {
 
     <p class="alert-success">@TempData["Mensagem"]</p>
 
-}
+}*@
 
 <table class="table">
     <tr>
@@ -48,7 +48,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            @Html.DisplayFor(modelItem => item.NomeUsuarioCliente)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataRegistro)
@@ -79,27 +79,27 @@
 
             $(".details").click(function () {
                 var id = $(this).attr("data-id");
-                $("#modal").load("/Pedido/Details?id=" + id, function () {
+                $("#modal").load("/Administracao/Pedido/Details?id=" + id, function () {
                     $("#modal").modal();
                 })
             });
 
             $(".edit").click(function () {
                 var id = $(this).attr("data-id");
-                $("#modal").load("/Pedido/Edit?id=" + id, function () {
+                $("#modal").load("/Administracao/Pedido/Edit?id=" + id, function () {
                     $("#modal").modal();
                 })
             });
 
             $(".delete").click(function () {
                 var id = $(this).attr("data-id");
-                $("#modal").load("/Pedido/Delete?id=" + id, function () {
+                $("#modal").load("/Administracao/Pedido/Delete?id=" + id, function () {
                     $("#modal").modal();
                 })
             });
 
             $(".create").click(function () {
-                $("#modal").load("/Pedido/Create", function () {
+                $("#modal").load("/Administracao/Pedido/Create", function () {
                     $("#modal").modal();
                  })
 

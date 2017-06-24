@@ -40,13 +40,13 @@ namespace Areas.Administracao.Controllers
             if (!String.IsNullOrEmpty(nomeCliente))
             {
                 cliente = db.Pedidos
-                    .Where(c => c.Cliente.Nome.ToUpper().Contains(nomeCliente.ToUpper()))
-                    .OrderBy(c => c.Cliente.Nome)
+                    .Where(c => c.NomeUsuarioCliente.ToUpper().Contains(nomeCliente.ToUpper()))
+                    .OrderBy(c => c.NomeUsuarioCliente)
                     .ToPagedList(numeroPagina, tamanhoPagina);
             }
             else
             {
-                cliente = db.Pedidos.OrderBy(p => p.Cliente.Nome).ToPagedList(numeroPagina, tamanhoPagina);
+                cliente = db.Pedidos.OrderBy(p => p.NomeUsuarioCliente).ToPagedList(numeroPagina, tamanhoPagina);
             }
             return View("Index", cliente);
         }
