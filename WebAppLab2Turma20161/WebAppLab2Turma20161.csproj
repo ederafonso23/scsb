@@ -393,6 +393,7 @@
     <Content Include="Content\Images\Products\7.png" />
     <Content Include="Content\Images\Products\8.png" />
     <Content Include="Content\Images\shoping_cart.png" />
+    <Content Include="Content\Images\wallpaper.jpg" />
     <Content Include="Content\Js\ResponsiveSlider.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\accordion.css" />
