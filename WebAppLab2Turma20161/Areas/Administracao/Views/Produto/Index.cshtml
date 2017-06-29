@@ -48,9 +48,17 @@
         <th>
             @Html.ActionLink("Categoria", "Index", new { ordenacao = ViewBag.NomeCatParam })
         </th>
+
         <th>
-            @Html.ActionLink("Produto", "Index", new { ordenacao = ViewBag.ProdutoParam })
+            @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.ProdutoParam })
         </th>
+
+        <th>
+            @Html.ActionLink("Descrição", "Index", new { ordenacao = ViewBag.ProdutoParam })
+        </th>
+
+
+
         <th>
             @Html.ActionLink("Valor", "Index", new { ordenacao = ViewBag.ValorParam })
         </th>
@@ -62,6 +70,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Categoria.Nome)
         </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
