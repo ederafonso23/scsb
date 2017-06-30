@@ -13,7 +13,7 @@ namespace WebAppLab2Turma20161.Models
     public class Pedido
     {
         [ScaffoldColumn(false)]
-        [Display(Name = "ID")]
+        [Display(Name = "Id do Pedido")]
         public int PedidoId { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]
@@ -38,6 +38,7 @@ namespace WebAppLab2Turma20161.Models
         public string CEP { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]
+        [DisplayName("País")]
         public string Pais { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]

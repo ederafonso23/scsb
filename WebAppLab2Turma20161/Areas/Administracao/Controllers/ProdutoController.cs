@@ -30,13 +30,13 @@ namespace Areas.Administracao.Controllers
             if (!String.IsNullOrEmpty(nomeProduto))
             {
                 produto = db.Produtos
-                    .Where(c => c.Descricao.ToUpper().Contains(nomeProduto.ToUpper()))
-                    .OrderBy(c => c.Descricao)
+                    .Where(c => c.Nome.ToUpper().Contains(nomeProduto.ToUpper()))
+                    .OrderBy(c => c.Nome)
                     .ToPagedList(numeroPagina, tamanhoPagina);
             }
             else
             {
-                produto = db.Produtos.OrderBy(p => p.Descricao).ToPagedList(numeroPagina, tamanhoPagina);
+                produto = db.Produtos.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamanhoPagina);
             }
             return View("Index", produto);
         }

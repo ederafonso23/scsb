@@ -10,7 +10,7 @@ namespace WebAppLab2Turma20161.Models
 {
     public class Produto
     {
-        [Display(Name = "ID")]
+        [Display(Name = "Id do Produto")]
         public int ProdutoId { get; set; }
 
         [Required(ErrorMessage = "Nome do produto é obrigatório")]

@@ -15,10 +15,19 @@
 
 
             <p>@Html.DisplayNameFor(model => model.PedidoId) : @Html.DisplayFor(model => model.PedidoId)</p>
-            <p>@Html.DisplayNameFor(model => model.Cliente.Nome) : @Html.DisplayFor(model => model.Cliente.Nome)</p>
+            <p>@Html.DisplayNameFor(model => model.Nome) : @Html.DisplayFor(model => model.Nome)</p>
+            <p>@Html.DisplayNameFor(model => model.Sobrenome) : @Html.DisplayFor(model => model.Sobrenome)</p>
+            <p>@Html.DisplayNameFor(model => model.Endereco) : @Html.DisplayFor(model => model.Endereco)</p>
+            <p>@Html.DisplayNameFor(model => model.Cidade) : @Html.DisplayFor(model => model.Cidade)</p>
+            <p>@Html.DisplayNameFor(model => model.Estado) : @Html.DisplayFor(model => model.Estado)</p>
+            <p>@Html.DisplayNameFor(model => model.CEP) : @Html.DisplayFor(model => model.CEP)</p>
+            <p>@Html.DisplayNameFor(model => model.Pais) : @Html.DisplayFor(model => model.Pais)</p>
+            <p>@Html.DisplayNameFor(model => model.Telefone) : @Html.DisplayFor(model => model.Telefone)</p>
+            <p>@Html.DisplayNameFor(model => model.Email) : @Html.DisplayFor(model => model.Email)</p>
+            <p>@Html.DisplayNameFor(model => model.Total) : R$@Html.DisplayFor(model => model.Total)</p>
             <p>@Html.DisplayNameFor(model => model.DataRegistro) : @Html.DisplayFor(model => model.DataRegistro)</p>
-            <p>@Html.DisplayNameFor(model => model.DataEnvio) : @Html.DisplayFor(model => model.DataEnvio)</p>
-            <p>@Html.DisplayNameFor(model => model.DataEntrega) : @Html.DisplayFor(model => model.DataEntrega)</p>
+           
+            
             <div class="text-right"><a href="/Pedido/GerarPDF/@Model.PedidoId" class="btn btn-danger">Gerar Relatório em PDF</a></div>
 
         </div>

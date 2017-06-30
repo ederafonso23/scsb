@@ -8,6 +8,7 @@ namespace WebAppLab2Turma20161.Models
 {
     public class Categoria
     {
+        [Display(Name = "Id da Categoria")]
         public int CategoriaId { get; set; }
 
         [Display(Name = "Categoria")]

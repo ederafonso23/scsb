@@ -31,41 +31,38 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.NomeParam })
+            @Html.ActionLink("Nome do Cliente", "Index", new { ordenacao = ViewBag.NomeParam })
         </th>
         <th>
             @Html.ActionLink("Data do Pedido", "Index", new { ordenacao = ViewBag.DataPedidoParam })
         </th>
-        <th>
+        
+        @*<th>
             @Html.ActionLink("Data do Envio", "Index", new { ordenacao = ViewBag.DataEnvioParam })
         </th>
         <th>
             @Html.ActionLink("Data de Entrega", "Index", new { ordenacao = ViewBag.DataEntregaParam })
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.NomeUsuarioCliente)
+            @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataRegistro)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataEnvio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataEntrega)
-        </td>
+       
+     
         <td>
             @*@Html.ActionLink("Editar", "Edit", new { id=item.PedidoId }) |
             @Html.ActionLink("Detalhes", "Details", new { id=item.PedidoId }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.PedidoId })*@ 
-           <button class="btn btn-default details" data-id="@item.PedidoId"><i class="glyphicon glyphicon-file"></i></button>
+            @Html.ActionLink("Excluir", "Delete", new { id=item.PedidoId })*@
+            <button class="btn btn-default details" data-id="@item.PedidoId"><i class="glyphicon glyphicon-file"></i></button>
             <button class="btn btn-danger delete" data-id="@item.PedidoId"><i class="glyphicon glyphicon-trash"></i></button>
-            <button class="btn btn-primary edit" data-id="@item.PedidoId"><i class="glyphicon glyphicon-edit"></i></button>
+            @*<button class="btn btn-primary edit" data-id="@item.PedidoId"><i class="glyphicon glyphicon-edit"></i></button>*@
         </td>
     </tr>
 }

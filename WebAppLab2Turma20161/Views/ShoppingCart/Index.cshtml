@@ -38,7 +38,7 @@ else
         {
             <tr id="row-@item.ProdutoId">
                 <td>
-                    @Html.ActionLink(item.Produto.Nome, "Details", "Products", new {id = item.ProdutoId}, null)
+                    @Html.ActionLink(item.Produto.Nome, "Index", "Home", new {id = item.ProdutoId}, null)
                 </td>
                 <td>
                     @item.Produto.Preco
