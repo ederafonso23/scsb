@@ -5,7 +5,7 @@
     ViewBag.Title = "Pedidos";
 }
 
-<h2><b>Lista de Pedidos</b></h2>
+<h2 class="text-center"><b>Lista de Pedidos</b> </h2>
 
 <div class="modal" id="modal">
 
@@ -14,8 +14,8 @@
 <form class="text-right" method="get" action="/Administracao/Pedido/ConsultarCliente">
     <p>
         <input type="search" placeholder="Pesquisar Cliente" name="nomeCliente" />
-        <button type="submit" value="Pesquisar" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-search"></i></button>
-        <button type="submit" value="Mostrar Todos" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+        <button type="submit" value="Pesquisar" class="btn btn-info btn-circle"title="Pesquisar"><i class="glyphicon glyphicon-search"></i></button>
+        <button type="submit" value="Mostrar Todos" class="btn btn-warning btn-circle"title="Mostrar Todos"><i class="glyphicon glyphicon-remove"></i></button>
 
     </p>
 </form>
@@ -60,7 +60,8 @@
             @*@Html.ActionLink("Editar", "Edit", new { id=item.PedidoId }) |
             @Html.ActionLink("Detalhes", "Details", new { id=item.PedidoId }) |
             @Html.ActionLink("Excluir", "Delete", new { id=item.PedidoId })*@
-            <button class="btn btn-default details" data-id="@item.PedidoId"><i class="glyphicon glyphicon-file"></i></button>
+            <button class="btn btn-default details" data-id="@item.PedidoId" title="Detalhes do Pedido"><i class="glyphicon glyphicon-file"></i></button>
+            
            @* <button class="btn btn-danger delete" data-id="@item.PedidoId"><i class="glyphicon glyphicon-trash"></i></button>*@
             @*<button class="btn btn-primary edit" data-id="@item.PedidoId"><i class="glyphicon glyphicon-edit"></i></button>*@
         </td>

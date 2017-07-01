@@ -7,7 +7,7 @@
     ViewBag.Title = "Categorias";
 }
 
-<h2><b>Lista de Categorias</b></h2>
+<h2 class="text-center"><b>Lista de Categorias</b> </h2>
 
 <div class="modal" id="modal">
 
@@ -68,9 +68,9 @@
             @Html.ActionLink("Detalhes", "Details", new { id=item.CategoriaID }) |
             @Html.ActionLink("Excluir", "Delete", new { id=item.CategoriaID }) *@
 
-            <button class="btn btn-default details" data-id="@item.CategoriaId"><i class="glyphicon glyphicon-file"></i></button>
-            <button class="btn btn-danger delete" data-id="@item.CategoriaId"><i class="glyphicon glyphicon-trash"></i></button>
-            <button class="btn btn-primary edit" data-id="@item.CategoriaId"><i class="glyphicon glyphicon-edit"></i></button>
+            <button class="btn btn-default details" data-id="@item.CategoriaId"title="Detalhes da Categoria"><i class="glyphicon glyphicon-file"></i></button>
+            <button class="btn btn-danger delete" data-id="@item.CategoriaId"title="Excluir Categoria"><i class="glyphicon glyphicon-trash"></i></button>
+            <button class="btn btn-primary edit" data-id="@item.CategoriaId"title="Editar Categoria"><i class="glyphicon glyphicon-edit"></i></button>
 
         </td>
     </tr>

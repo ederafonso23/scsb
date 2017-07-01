@@ -206,6 +206,11 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="DiagramaDeClasse\DiagramaDeClasse.cs" />
+    <Compile Include="DiagramaDeClasse\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -506,6 +511,10 @@
     <Content Include="Areas\Administracao\Views\Widgets\Index.cshtml" />
     <Content Include="Areas\Administracao\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administracao\Views\Shared\NavigatorBarList - Cópia .cshtml" />
+    <EntityDeploy Include="DiagramaDeClasse\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\PublishProfiles\buildlocal.pubxml" />
     <None Include="Properties\PublishProfiles\ftpvisualstudio.pubxml" />
     <None Include="Properties\PublishProfiles\GearHost.pubxml" />

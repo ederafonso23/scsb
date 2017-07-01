@@ -17,6 +17,7 @@ namespace WebAppLab2Turma20161.Controllers
        
         public ActionResult Index()
         {
+            //DiagramaDeClasse.DiagramaDeClasse.GerarDiagrama();
             return View();
         }
        

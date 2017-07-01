@@ -45,7 +45,7 @@ namespace WebAppLab2Turma20161.Models
         public string Telefone { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]
-        [DisplayName("E-mail")]
+        [DisplayName("E-mail do Checkout")]
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}",
             ErrorMessage = "E-mail inválido.")]
         [DataType(DataType.EmailAddress)]
@@ -65,9 +65,12 @@ namespace WebAppLab2Turma20161.Models
         [Display(Name = "Data da Entrega")]
         public DateTime? DataEntrega { get; set; }
 
+        
         [ScaffoldColumn(false)]
         public Decimal Total { get; set; }
 
+        [Display(Name = "E-mail de Cadastro")]
+        [DataType(DataType.EmailAddress)]
         [ScaffoldColumn(false)]
         public string NomeUsuarioCliente { get; set; }
 
