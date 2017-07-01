@@ -43,6 +43,13 @@
 
 }
 
+@if (TempData["MensagemDeletar"] != null)
+{
+
+    <p class="alert-danger">@TempData["MensagemDeletar"]</p>
+
+}
+
 <table class="table">
     <tr>
         <th>

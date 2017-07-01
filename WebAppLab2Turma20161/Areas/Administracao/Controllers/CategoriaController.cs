@@ -158,9 +158,19 @@ namespace Areas.Administracao.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Categoria categoria = db.Categorias.Find(id);
-            db.Categorias.Remove(categoria);
-           db.SaveChanges();
-            TempData["Mensagem"] = "Categoria excluída com sucesso!";
+
+            try
+            {
+                db.Categorias.Remove(categoria);
+                db.SaveChanges();
+                TempData["Mensagem"] = "Categoria excluída com sucesso!";
+            }
+            catch (Exception)
+            {
+                TempData["MensagemDeletar"] = @"Não foi possível remover a categoria, 
+                               pois o mesmo possui dependências com outras entidades.";
+            }
+           
             return RedirectToAction("Index");
         }
 

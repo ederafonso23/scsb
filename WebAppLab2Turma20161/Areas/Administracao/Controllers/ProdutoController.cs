@@ -226,9 +226,20 @@ namespace Areas.Administracao.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Produto produto = db.Produtos.Find(id);
-            db.Produtos.Remove(produto);
-            db.SaveChanges();
-            TempData["Mensagem"] = "Produto excluído com sucesso!";
+
+            try { 
+
+                db.Produtos.Remove(produto);
+                db.SaveChanges();
+                TempData["Mensagem"] = "Produto excluído com sucesso!";
+
+            }
+            catch (Exception)
+            {
+                TempData["MensagemDeletar"] = @"Não foi possível remover o produto, 
+                               pois o mesmo possui dependências com outras entidades.";
+            }
+
             return RedirectToAction("Index");
         }
 

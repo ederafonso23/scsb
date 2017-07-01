@@ -12,8 +12,7 @@
         <h2>Dados de Entrega e Pagamento</h2>
         <fieldset>
             <legend>Informações da compra</legend>
-           
-           @*COMEÇO*@
+          
             <div class="form-group">
                 @Html.LabelFor(model => model.Nome, "Nome", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -86,14 +85,13 @@
                 </div>
             </div>
 
-        @*FINAL*@
           
          
         </fieldset>
         <fieldset>
             <legend>Pagamento</legend>
             <p>
-                Semana de promoção: todos os itens com 10% de descontro com o código promocional:
+                Semana de promoção: todos os itens com 10% de descontro com o código promocional: "FREE"
             </p>
             <div class="editor-label">
                 @Html.Label("Código")
@@ -103,7 +101,7 @@
             </div>
         </fieldset>
 
-        <input type="submit" value="Finalizar Pedido"/>
+        <input type="submit" class="btn btn-default" value="Finalizar Pedido"/>
     </div>
 
 

@@ -44,7 +44,7 @@ namespace WebAppLab2Turma20161.Controllers
                     cart.CriarPedido(order);
 
                     db.SaveChanges();//we have received the total amount lets update it
-
+                    ViewBag.TotalPedido = order.Total;
                     return RedirectToAction("Complete", new {id = order.PedidoId});
                 }
             }

@@ -40,6 +40,12 @@
     <p class="alert-success">@TempData["Mensagem"]</p>
 
 }
+@if (TempData["MensagemDeletar"] != null)
+{
+
+    <p class="alert-danger">@TempData["MensagemDeletar"]</p>
+
+}
 
 
 <!--<p><a class="btn btn-default" href="Categoria">Categorias &raquo;</a></p>-->

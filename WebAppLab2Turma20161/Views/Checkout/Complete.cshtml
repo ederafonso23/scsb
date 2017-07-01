@@ -1,10 +1,12 @@
-﻿@model int
+﻿
+@model int
 
 @{
     ViewBag.Title = "Pagamento Confirmado";
 }
 <h2>Pedido Finalizado</h2>
-<p>Obrigado pela prefência! O código do seu pedido é: @Model</p>
+<p>Obrigado pela prefência!</p> 
+<p>O código do seu pedido é: @Model</p>
 <p>
     Que tal comprar mais produtos em nossa loja?
     @Html.ActionLink("Continuar comprando", "Index", "Home")
