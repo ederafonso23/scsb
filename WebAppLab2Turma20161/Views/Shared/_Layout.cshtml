@@ -27,8 +27,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
-                    @*<li>@Html.ActionLink("Sobre", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                   
+                    <li>@Html.ActionLink("Quem Somos", "About", "Home")</li>
                   
                     @{
                         if (Request.IsAuthenticated)
@@ -63,7 +63,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p class="text-center"> Desenvolvido por <a href="#" target="_new">Éder - Curso CST Feics</a> &copy; @DateTime.Now.Year</p>
+            
+            <p class="text-center"> Desenvolvido por @Html.ActionLink("Éder Afonso Rabelo", "Contact", "Home") &copy; @DateTime.Now.Year</p>
         </footer>
     </div>
 

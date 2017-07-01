@@ -42,46 +42,7 @@ namespace Areas.Administracao.Controllers
         }
 
 
-        public ActionResult FiltroPorIntervaloValor()
-        {
-            var filtroProdutoPorIntervadoValor = db.Produtos
-                    .Where(p => p.Preco >= 100 && p.Preco <= 1800)
-                    .Select(
-                         p => new ProdutoPorIntervaloValorViewModel
-                         {
-                             CodigoProduto = p.ProdutoId
-                            ,
-                             ValorProduto = p.Preco
-                            ,
-                             NomeProduto = p.Descricao
-                         }
-                            ).ToList();
-
-            return View(filtroProdutoPorIntervadoValor);
-        }
-
-
-        public ActionResult ProdutosCategorias()
-        {
-
-            var ProdutosCategorias = (from p in db.Produtos
-                                      join c in db.Categorias
-                                      on p.CategoriaId equals c.CategoriaId
-                                      orderby p.Descricao
-                                      select new ProdutoCategoriaViewModel
-                                      {
-                                          CodigoProduto = p.ProdutoId
-                                         ,
-                                          DescricaoProduto = p.Descricao
-                                         ,
-                                          CodigoCategoria = c.CategoriaId
-                                         ,
-                                          DescricaoCategoria = c.Nome
-
-                                      }).ToList();
-
-            return View(ProdutosCategorias);
-        }
+     
 
         // GET: Produto
         [AllowAnonymous]

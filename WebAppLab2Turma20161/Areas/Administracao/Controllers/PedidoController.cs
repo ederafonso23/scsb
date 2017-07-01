@@ -50,10 +50,7 @@ namespace Areas.Administracao.Controllers
             }
             return View("Index", cliente);
         }
-        //TODO: criar as seguintes actions methods: PedidosPorCodigoDoCliente, PrimeiroPedidoRealizado,
-        //TodosPedidosDeClientes, TodosPedidosClientesEnviadoNaoEntregue,
-        //DetalhesDoPedidoComFiltro
-        //Utilize as consultas produzidas no LinqPad
+    
 
         // GET: Pedido
         public ActionResult Index(string ordenacao, int? pagina)

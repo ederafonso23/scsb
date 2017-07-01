@@ -16,32 +16,7 @@ namespace WebAppLab2Turma20161.Controllers
     {
         private ContextoEF db = new ContextoEF();
 
-        /*   public ActionResult UltimoClienteCadastrado()
-           {
-             var ultimoClienteCadastrado = db.Clientes.ToList().LastOrDefault();
-               return View(ultimoClienteCadastrado);
-           }
-
-           public ActionResult MediaIdadeCliente()
-           {
-               var mediaIdadeCliente = db.Clientes.Average(c => c.Idade);
-               ViewBag.MediaIdadeCliente = mediaIdadeCliente;
-               return View();
-           }
-
-           public ActionResult ClienteMaisVelho()
-           {
-               var clienteMaiorIdade = db.Clientes.Max(c => c.Idade);
-               ViewBag.Idade = clienteMaiorIdade;
-               return View();
-           }
-
-           public ActionResult ClientesMaioresDeIdade()
-           {
-
-               var clientesMaioresIdade = db.Clientes.Where(c => c.Idade > 18).ToList();
-               return View(clientesMaioresIdade);
-           } */
+        
 
         public ActionResult ConsultarCliente(int? pagina, string nomeCliente = null)
         {

@@ -28,7 +28,7 @@ namespace WebAppLab2Turma20161.Models
         public string CEP { get; set; }
 
         public virtual ICollection<Pedido> Pedidos { get; set; }
-        public virtual ICollection<Horario> Horarios { get; set; }
+        //public virtual ICollection<Horario> Horarios { get; set; }
     }
 
     public class LogOnModel

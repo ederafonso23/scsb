@@ -16,7 +16,7 @@ namespace WebAppLab2Turma20161.DiagramaDeClasse
 
             using (var ctx = new ContextoEF())
             {
-                using (var writer = new XmlTextWriter(@"C:\Users\edera\Source\Repos\scsb\WebAppLab2Turma20161\DiagramaDeClasse\Model.edmx", Encoding.Default))
+                using (var writer = new XmlTextWriter(@"C:\Users\edera\Source\Repos\lojavirtual\WebAppLab2Turma20161\DiagramaDeClasse\Model.edmx", Encoding.Default))
                 {
                     EdmxWriter.WriteEdmx(ctx, writer);
                 }
