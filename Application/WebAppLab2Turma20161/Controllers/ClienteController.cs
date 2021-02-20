@@ -38,7 +38,7 @@ namespace WebAppLab2Turma20161.Controllers
             return View("Index", cliente);
         }
 
-        // GET: Cliente
+        // GET: Cliente 
         public ActionResult Index(string ordenacao, int? pagina)
         {
             ViewBag.OrdenacaoAtual = ordenacao;
